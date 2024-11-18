@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import App from './App.jsx';
+import Home from './Home.jsx';
 
-describe('App', () => {
+describe('Home page', () => {
   it('renders main text', () => {
-    render(<App />);
+    render(<Home />);
 
     expect(screen.getByText('Hello World!')).toBeInTheDocument();
   });
