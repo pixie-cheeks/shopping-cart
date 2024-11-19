@@ -1,5 +1,12 @@
+import Navbar from '../Navbar/Navbar.jsx';
+
 function Home() {
-  return <p>Hello World!</p>;
+  return (
+    <>
+      <Navbar />
+      <p>This is the home page.</p>
+    </>
+  );
 }
 
 export default Home;
