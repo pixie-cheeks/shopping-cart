@@ -12,6 +12,8 @@ describe('Home page', () => {
   it('renders main text', () => {
     setupRoutes();
 
-    expect(screen.getByText('This is the home page.')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Vanity Bazaar' }),
+    ).toBeInTheDocument();
   });
 });

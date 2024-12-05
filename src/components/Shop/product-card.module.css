@@ -1,0 +1,21 @@
+.img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 0.5em;
+}
+
+.cardImg {
+  max-height: 100%;
+}
+
+.cardImgContainer {
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+}
