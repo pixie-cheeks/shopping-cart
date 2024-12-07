@@ -59,7 +59,7 @@ describe('Shop page', () => {
     vi.restoreAllMocks();
   });
 
-  it.only('renders items', async () => {
+  it('renders items', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(
       vi.fn(() => Promise.resolve({ json: () => [fakeProduct] })),
     );
@@ -72,5 +72,16 @@ describe('Shop page', () => {
     expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
 
     vi.restoreAllMocks();
+  });
+
+  it('works the same way with localStorage', async () => {
+    localStorage.setItem('products', JSON.stringify([fakeProduct]));
+    setupRoutes();
+
+    expect(await screen.findByText(fakeProduct.title)).toBeInTheDocument();
+    expect(
+      screen.queryByText('There was an error in fetching products.'),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
   });
 });

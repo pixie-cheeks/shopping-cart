@@ -13,6 +13,7 @@ const useProducts = () => {
     const localProducts = JSON.parse(localStorage.getItem('products'));
     if (localProducts) {
       setProducts(localProducts);
+      setLoading(false);
       return;
     }
 
