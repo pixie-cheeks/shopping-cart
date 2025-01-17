@@ -19,3 +19,14 @@
   justify-content: center;
   height: 10rem;
 }
+
+.cartCount {
+  display: flex;
+  gap: 0.5em;
+}
+
+.cartCountCount {
+  border: solid black 1px;
+  padding: 0.25em 0.5em;
+  text-align: center;
+}
