@@ -1,4 +1,4 @@
-import Navbar from '../Navbar/Navbar.jsx';
+import { Navbar } from '../Navbar/Navbar.jsx';
 
 function Cart() {
   return (

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { createMemoryRouter, RouterProvider } from 'react-router';
-import Shop from './Shop.jsx';
+import { Shop } from './Shop.jsx';
 
 const setupRoutes = () => {
   const router = createMemoryRouter([{ path: '/', element: <Shop /> }]);

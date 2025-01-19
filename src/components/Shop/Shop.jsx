@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Navbar from '../Navbar/Navbar.jsx';
-import ProductCard from './ProductCard.jsx';
+import { Navbar } from '../Navbar/Navbar.jsx';
+import { ProductCard } from './ProductCard.jsx';
 import styles from './shop.module.css';
 
 const useProducts = () => {
@@ -68,4 +68,4 @@ function Shop() {
   );
 }
 
-export default Shop;
+export { Shop };

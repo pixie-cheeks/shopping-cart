@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import Navbar from '../Navbar/Navbar.jsx';
+import { Navbar } from '../Navbar/Navbar.jsx';
 import styles from './home.module.css';
 
 function Home() {
@@ -15,4 +15,4 @@ function Home() {
   );
 }
 
-export default Home;
+export { Home };

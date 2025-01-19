@@ -48,5 +48,11 @@ export default [
       ...pluginJestDom.configs['flat/recommended'].rules,
     },
   },
+  {
+    files: ['{eslint,vite}.config.js'],
+    rules: {
+      'import-x/no-default-export': 'off',
+    },
+  },
   pixie.prettier,
 ];
