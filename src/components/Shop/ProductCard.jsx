@@ -29,18 +29,7 @@ function ProductCard({ title, price, image, rating }) {
         >
           +
         </button>
-        <input
-          className={styles.cartCountCount}
-          type="number"
-          value={buyCount}
-          onKeyDown={(e) => {
-            if (e.key === '-') e.preventDefault();
-          }}
-          onChange={(e) => {
-            setBuyCount(Number(e.target.value));
-          }}
-          min={1}
-        />
+        <div>{buyCount}</div>
         <button
           className={styles.cartCountDecrement}
           type="button"
