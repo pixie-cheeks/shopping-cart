@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './product-card.module.css';
 
-function ProductCard({ title, price, image, rating }) {
+function ProductCard({ title, price, image, rating, id }) {
   const [buyCount, setBuyCount] = useState(1);
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} data-id={id}>
       <div className={styles.cardImgContainer}>
         <img
           src={image}
@@ -46,6 +46,7 @@ ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   rating: PropTypes.shape({
     count: PropTypes.number.isRequired,
     rate: PropTypes.number.isRequired,
