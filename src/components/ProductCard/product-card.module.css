@@ -20,13 +20,17 @@
   height: 10rem;
 }
 
-.cartCount {
+.cartControl {
   display: flex;
   gap: 0.5em;
 }
 
-/* .cartCountCount {
-  border: solid black 1px;
-  padding: 0.25em 0.5em;
-  text-align: center;
-} */
+.inputNumber {
+  appearance: textfield;
+}
+
+.inputNumber::-webkit-outer-spin-button,
+.inputNumber::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}

@@ -2,11 +2,21 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './product-card.module.css';
 
-function ProductCard({ title, price, image, rating, id }) {
+function ProductCard({ title, price, image, rating }) {
   const [buyCount, setBuyCount] = useState(1);
+  const onInputChange = (e) => {
+    const inputValue = Number(e.target.value);
+    if (inputValue < 1) {
+      setBuyCount(1);
+    } else if (inputValue > 999) {
+      setBuyCount(999);
+    } else {
+      setBuyCount(inputValue);
+    }
+  };
 
   return (
-    <div className={styles.card} data-id={id}>
+    <div className={styles.card}>
       <div className={styles.card_imgContainer}>
         <img
           src={image}
@@ -21,17 +31,27 @@ function ProductCard({ title, price, image, rating, id }) {
           Rate: {rating.rate} Count: {rating.count}
         </div>
       </div>
-      <div className={styles.cartCount}>
+      <div className={styles.cartControl}>
         <button
-          className={styles.cartCount_increment}
+          className={styles.cartControl_adder}
           type="button"
-          onClick={() => setBuyCount((count) => count + 1)}
+          onClick={() =>
+            setBuyCount((count) => (count < 999 ? count + 1 : 999))
+          }
         >
           +
         </button>
-        <div>{buyCount}</div>
+        <input
+          type="number"
+          aria-label="Number of Items"
+          value={buyCount}
+          min="1"
+          max="999"
+          className={`${styles.cartControl_display} ${styles.inputNumber}`}
+          onChange={onInputChange}
+        />
         <button
-          className={styles.cartCount_decrement}
+          className={styles.cartControl_reducer}
           type="button"
           onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
         >
@@ -46,7 +66,6 @@ ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
   rating: PropTypes.shape({
     count: PropTypes.number.isRequired,
     rate: PropTypes.number.isRequired,
