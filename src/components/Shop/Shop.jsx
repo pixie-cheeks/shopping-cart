@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar } from '../Navbar/Navbar.jsx';
 import { ProductCard } from '../ProductCard/ProductCard.jsx';
+import { CategoryFilter } from './CategoryFilter.jsx';
 import styles from './shop.module.css';
 
 const useProducts = () => {
@@ -31,12 +32,27 @@ const useProducts = () => {
 };
 
 function ProductList({ products }) {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const allCategories = [
+    'All',
+    ...new Set(products.map((product) => product.category)),
+  ];
+  const filteredProducts =
+    selectedCategory === 'All'
+      ? products
+      : products.filter(({ category }) => category === selectedCategory);
+
   return (
-    <div className={styles.productList}>
-      {products.map(({ id, title, price, image, rating }) => (
-        <ProductCard {...{ title, price, image, rating }} key={id} />
-      ))}
-    </div>
+    <>
+      <CategoryFilter
+        {...{ selectedCategory, setSelectedCategory, allCategories }}
+      />
+      <div className={styles.productList}>
+        {filteredProducts.map(({ id, title, price, image, rating }) => (
+          <ProductCard {...{ title, price, image, rating }} key={id} />
+        ))}
+      </div>
+    </>
   );
 }
 
