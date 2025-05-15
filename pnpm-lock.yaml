@@ -28,8 +28,8 @@ importers:
         specifier: ^11.1.0
         version: 11.1.0(eslint@9.26.0)(typescript@5.6.3)
       '@pixie-cheeks/stylelint-config':
-        specifier: ^3.0.0
-        version: 3.0.0(stylelint@16.19.1(typescript@5.6.3))
+        specifier: ^4.0.0
+        version: 4.0.0(stylelint@16.19.1(typescript@5.6.3))
       '@testing-library/jest-dom':
         specifier: ^6.6.3
         version: 6.6.3
@@ -739,8 +739,8 @@ packages:
     peerDependencies:
       eslint: '>=9.15.0'
 
-  '@pixie-cheeks/stylelint-config@3.0.0':
-    resolution: {integrity: sha512-8gz7MwDFJfsjm+g9sICNSlD5aYWowyLxu938XK07xUvTEAZyMUe3yxmVuWJ6G1mSICwR7hmXrex8nFPuI3dYLQ==}
+  '@pixie-cheeks/stylelint-config@4.0.0':
+    resolution: {integrity: sha512-92PIMFj5yJZ81Dar35KlocrAAZ9Jz92RlaZP93lEgfuJa4SNKJMmjexk1NQ+DpDqLdKhGDLiEexuv4IYwrBJjg==}
     peerDependencies:
       stylelint: '>=16.18.0'
 
@@ -4014,7 +4014,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@pixie-cheeks/stylelint-config@3.0.0(stylelint@16.19.1(typescript@5.6.3))':
+  '@pixie-cheeks/stylelint-config@4.0.0(stylelint@16.19.1(typescript@5.6.3))':
     dependencies:
       stylelint: 16.19.1(typescript@5.6.3)
       stylelint-config-concentric-order: 5.2.1(stylelint@16.19.1(typescript@5.6.3))

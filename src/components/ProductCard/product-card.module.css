@@ -10,11 +10,11 @@
   padding: 0.5em;
 }
 
-.cardImg {
+.card_img {
   max-height: 100%;
 }
 
-.cardImgContainer {
+.card_imgContainer {
   display: flex;
   justify-content: center;
   height: 10rem;
@@ -25,8 +25,8 @@
   gap: 0.5em;
 }
 
-.cartCountCount {
+/* .cartCountCount {
   border: solid black 1px;
   padding: 0.25em 0.5em;
   text-align: center;
-}
+} */

@@ -7,11 +7,11 @@ function ProductCard({ title, price, image, rating, id }) {
 
   return (
     <div className={styles.card} data-id={id}>
-      <div className={styles.cardImgContainer}>
+      <div className={styles.card_imgContainer}>
         <img
           src={image}
           alt={title}
-          className={`${styles.img} ${styles.cardImg}`}
+          className={`${styles.img} ${styles.card_img}`}
         />
       </div>
       <div>
@@ -23,7 +23,7 @@ function ProductCard({ title, price, image, rating, id }) {
       </div>
       <div className={styles.cartCount}>
         <button
-          className={styles.cartCountIncrement}
+          className={styles.cartCount_increment}
           type="button"
           onClick={() => setBuyCount((count) => count + 1)}
         >
@@ -31,7 +31,7 @@ function ProductCard({ title, price, image, rating, id }) {
         </button>
         <div>{buyCount}</div>
         <button
-          className={styles.cartCountDecrement}
+          className={styles.cartCount_decrement}
           type="button"
           onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
         >

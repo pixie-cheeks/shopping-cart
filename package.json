@@ -25,7 +25,7 @@
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.8.0",
     "@pixie-cheeks/eslint-config": "^11.1.0",
-    "@pixie-cheeks/stylelint-config": "^3.0.0",
+    "@pixie-cheeks/stylelint-config": "^4.0.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
