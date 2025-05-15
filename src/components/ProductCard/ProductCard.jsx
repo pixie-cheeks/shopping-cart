@@ -1,9 +1,20 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './product-card.module.css';
+import { getCartItems, setCartItems } from '../cart-storage.js';
 
-function ProductCard({ title, price, image, rating }) {
+function ProductCard({ id, title, price, image, rating }) {
   const [buyCount, setBuyCount] = useState(1);
+  const onAddToCartClick = () => {
+    const cartItems = getCartItems();
+    const currentItem = cartItems.find((item) => item.id === id);
+    if (currentItem) {
+      currentItem.quantity += buyCount;
+    } else {
+      cartItems.push({ id, quantity: buyCount });
+    }
+    setCartItems(cartItems);
+  };
   const onInputChange = (e) => {
     const inputValue = Number(e.target.value);
     if (inputValue < 1) {
@@ -32,37 +43,49 @@ function ProductCard({ title, price, image, rating }) {
         </div>
       </div>
       <div className={styles.cartControl}>
-        <button
-          className={styles.cartControl_adder}
-          type="button"
-          onClick={() =>
-            setBuyCount((count) => (count < 999 ? count + 1 : 999))
-          }
-        >
-          +
-        </button>
-        <input
-          type="number"
-          aria-label="Number of Items"
-          value={buyCount}
-          min="1"
-          max="999"
-          className={`${styles.cartControl_display} ${styles.inputNumber}`}
-          onChange={onInputChange}
-        />
-        <button
-          className={styles.cartControl_reducer}
-          type="button"
-          onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
-        >
-          -
-        </button>
+        <div className={styles.cartControl_top}>
+          <button
+            className={styles.cartControl_adder}
+            type="button"
+            onClick={() =>
+              setBuyCount((count) => (count < 999 ? count + 1 : 999))
+            }
+          >
+            +
+          </button>
+          <input
+            type="number"
+            aria-label="Number of Items"
+            value={buyCount}
+            min="1"
+            max="999"
+            className={`${styles.cartControl_display} ${styles.inputNumber}`}
+            onChange={onInputChange}
+          />
+          <button
+            className={styles.cartControl_reducer}
+            type="button"
+            onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
+          >
+            -
+          </button>
+        </div>
+        <div className={styles.cartControl_bottom}>
+          <button
+            type="button"
+            className={styles.cartControl_submit}
+            onClick={onAddToCartClick}
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
 ProductCard.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,

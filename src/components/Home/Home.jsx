@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import { Navbar } from '../Navbar/Navbar.jsx';
 import styles from './home.module.css';
 
+localStorage.removeItem('cartItems');
 function Home() {
   return (
     <>

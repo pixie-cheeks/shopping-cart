@@ -49,7 +49,7 @@ function ProductList({ products }) {
       />
       <div className={styles.productList}>
         {filteredProducts.map(({ id, title, price, image, rating }) => (
-          <ProductCard {...{ title, price, image, rating }} key={id} />
+          <ProductCard {...{ id, title, price, image, rating }} key={id} />
         ))}
       </div>
     </>
