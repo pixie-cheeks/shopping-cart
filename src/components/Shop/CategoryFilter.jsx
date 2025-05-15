@@ -7,7 +7,11 @@ function CategoryFilter({
   allCategories,
 }) {
   return (
-    <div className={styles.categoryFilter}>
+    <div
+      className={styles.categoryFilter}
+      role="radiogroup"
+      aria-label="Category Selection"
+    >
       {allCategories.map((categoryName) => (
         <label htmlFor={categoryName} key={categoryName}>
           <input

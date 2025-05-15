@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { createMemoryRouter, RouterProvider } from 'react-router';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { ProductCard } from './ProductCard.jsx';
 
 const fakeProduct = {
@@ -25,6 +25,12 @@ const setupRoutes = () => {
   render(<RouterProvider router={router} />);
 };
 
+const userSetup = () => {
+  const user = userEvent.setup();
+  setupRoutes();
+  return user;
+};
+
 describe('Rendering Tests', () => {
   beforeEach(() => setupRoutes());
 
@@ -46,13 +52,6 @@ describe('Rendering Tests', () => {
     ).toBeInTheDocument();
   });
 });
-
-const userSetup = () => {
-  /** @type {import('@testing-library/user-event').UserEvent} */
-  const user = userEvent.setup();
-  setupRoutes();
-  return user;
-};
 
 describe('Cart controls', () => {
   it('increments the quantity by one', async () => {
