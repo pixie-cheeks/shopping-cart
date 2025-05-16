@@ -33,6 +33,7 @@
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.4.1",
     "@vitest/eslint-plugin": "^1.1.44",
+    "cspell": "^9.0.1",
     "eslint": "^9.26.0",
     "eslint-plugin-jest-dom": "^5.5.0",
     "eslint-plugin-react-refresh": "^0.4.20",
@@ -77,8 +78,28 @@
       "postcss-preset-env": {}
     }
   },
+  "cspell": {
+    "version": "0.2",
+    "language": "en,en-GB,lorem",
+    "allowCompoundWords": true,
+    "dictionaries": [
+      "html"
+    ],
+    "words": [
+      "awmottaz",
+      "doesn",
+      "esbuild",
+      "unrs"
+    ],
+    "ignorePaths": [
+      "dist",
+      "node_modules",
+      "pnpm-lock.yaml"
+    ]
+  },
   "lint-staged": {
     "*": [
+      "cspell",
       "prettier --write --ignore-unknown"
     ],
     "*.{js,cjs,jsx}": [
