@@ -45,13 +45,11 @@ function ProductCard({ id, title, price, image, rating }) {
       <div className={styles.cartControl}>
         <div className={styles.cartControl_top}>
           <button
-            className={styles.cartControl_adder}
+            className={styles.cartControl_reducer}
             type="button"
-            onClick={() =>
-              setBuyCount((count) => (count < 999 ? count + 1 : 999))
-            }
+            onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
           >
-            +
+            -
           </button>
           <input
             type="number"
@@ -63,11 +61,13 @@ function ProductCard({ id, title, price, image, rating }) {
             onChange={onInputChange}
           />
           <button
-            className={styles.cartControl_reducer}
+            className={styles.cartControl_adder}
             type="button"
-            onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
+            onClick={() =>
+              setBuyCount((count) => (count < 999 ? count + 1 : 999))
+            }
           >
-            -
+            +
           </button>
         </div>
         <div className={styles.cartControl_bottom}>
