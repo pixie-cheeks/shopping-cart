@@ -1,9 +1,17 @@
+import { useState } from 'react';
 import { Navbar } from '../Navbar/Navbar.jsx';
-import { getCartItems } from '../cart-storage.js';
+import {
+  getCartItems,
+  setCartItems as setCartItemsLocal,
+} from '../cart-storage.js';
 import { CartItemList } from './CartItemList.jsx';
 
 function Cart() {
-  const cartItems = getCartItems() ?? [];
+  const [cartItems, setCartItemsState] = useState(() => getCartItems() ?? []);
+  const setCartItems = (givenCartItems) => {
+    setCartItemsLocal(givenCartItems);
+    setCartItemsState(givenCartItems);
+  };
 
   return (
     <>
@@ -11,7 +19,7 @@ function Cart() {
       <h1>Your Cart</h1>
       <main>
         {cartItems.length > 0 ? (
-          <CartItemList cartItems={cartItems} />
+          <CartItemList {...{ cartItems, setCartItems }} />
         ) : (
           <p>There are no items in the cart.</p>
         )}

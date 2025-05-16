@@ -28,12 +28,8 @@ function ProductCard({ id, title, price, image, rating }) {
 
   return (
     <div className={styles.card}>
-      <div className={styles.card_imgContainer}>
-        <img
-          src={image}
-          alt={title}
-          className={`${styles.img} ${styles.card_img}`}
-        />
+      <div className={`${styles.card_imgContainer}`}>
+        <img src={image} alt={title} className={`img ${styles.card_img}`} />
       </div>
       <div>
         <div>{title}</div>

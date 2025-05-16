@@ -47,6 +47,8 @@ export default [
       ...pluginVitest.configs.recommended.rules,
       ...pluginTestingLibrary.configs['flat/react'].rules,
       ...pluginJestDom.configs['flat/recommended'].rules,
+      'vitest/no-disabled-tests': 'warn',
+      'vitest/prefer-todo': 'warn',
     },
   },
   {

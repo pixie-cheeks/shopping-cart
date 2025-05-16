@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types';
 import styles from './cart.module.css';
 
-function CartItem({ image, title, price, quantity }) {
+function CartItem({
+  image,
+  title,
+  price,
+  quantity,
+  incrementQuantity,
+  decrementQuantity,
+  removeItem,
+}) {
   return (
     <div className={styles.cartList_item}>
       <div className={styles.cartList_imgContainer}>
@@ -11,40 +19,86 @@ function CartItem({ image, title, price, quantity }) {
         <h3>{title}</h3>
         <p>Price: {price}</p>
         <div className={styles.cartList_quantityControl}>
-          <button type="button">-</button>
+          <button type="button" onClick={decrementQuantity}>
+            -
+          </button>
           <div>{quantity}</div>
-          <button type="button">+</button>
+          <button type="button" onClick={incrementQuantity}>
+            +
+          </button>
         </div>
       </div>
-      <button type="button">Remove Item</button>
+      <button type="button" onClick={removeItem}>
+        Remove Item
+      </button>
     </div>
   );
 }
 
-function CartItemList({ cartItems }) {
+function CartItemList({ cartItems, setCartItems }) {
+  const createCartItem = (item) => {
+    const { id, title, price, image, quantity } = item;
+    const incrementQuantity = () => {
+      item.quantity++;
+      setCartItems([...cartItems]);
+    };
+
+    const removeItem = () => {
+      setCartItems(cartItems.filter((givenItem) => givenItem.id !== id));
+    };
+
+    const decrementQuantity = () => {
+      if (quantity === 1) {
+        removeItem();
+        return;
+      }
+      item.quantity--;
+      setCartItems([...cartItems]);
+    };
+
+    return (
+      <CartItem
+        key={id}
+        {...{
+          title,
+          price,
+          image,
+          quantity,
+          incrementQuantity,
+          decrementQuantity,
+          removeItem,
+        }}
+      />
+    );
+  };
   return (
     <div className={styles.cartList}>
-      {cartItems.map(({ id, title, price, image, quantity }) => (
-        <CartItem key={id} {...{ title, price, image, quantity }} />
-      ))}
+      {cartItems.map((item) => createCartItem(item))}
     </div>
   );
 }
 
-const cartItems = {
-  id: PropTypes.number.isRequired,
+CartItem.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
-};
-
-CartItem.propTypes = {
-  ...cartItems,
+  incrementQuantity: PropTypes.func.isRequired,
+  decrementQuantity: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
 };
 
 CartItemList.propTypes = {
-  cartItems: PropTypes.shape(cartItems).isRequired,
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+      quantity: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  setCartItems: PropTypes.func.isRequired,
 };
 
 export { CartItemList };
