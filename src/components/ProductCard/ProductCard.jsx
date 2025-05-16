@@ -11,7 +11,7 @@ function ProductCard({ id, title, price, image, rating }) {
     if (currentItem) {
       currentItem.quantity += buyCount;
     } else {
-      cartItems.push({ id, quantity: buyCount });
+      cartItems.push({ id, quantity: buyCount, title, price, image, rating });
     }
     setCartItems(cartItems);
   };
