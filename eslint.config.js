@@ -27,6 +27,7 @@ export default [
           optionalDependencies: false,
         },
       ],
+      'unicorn/prefer-import-meta-properties': 'error',
     },
   },
   {

@@ -14,7 +14,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=21.0.0"
+    "node": ">=21.2.0"
   },
   "dependencies": {
     "prop-types": "^15.8.1",
@@ -71,6 +71,11 @@
         ]
       }
     ]
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-preset-env": {}
+    }
   },
   "lint-staged": {
     "*": [
