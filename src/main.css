@@ -6,6 +6,11 @@
   padding: 1em;
 }
 
+.page__container {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
 .img {
   display: block;
   max-width: 100%;
