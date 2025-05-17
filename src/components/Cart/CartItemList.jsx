@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 import styles from './cart.module.css';
 
 function CartItem({
+  id,
   image,
   title,
   price,
@@ -13,7 +15,9 @@ function CartItem({
   return (
     <div className={styles.cartList_item}>
       <div className={styles.cartList_imgContainer}>
-        <img src={image} alt={title} className="img" />
+        <Link to={`/shop/${id}`}>
+          <img src={image} alt={title} className="img" />
+        </Link>
       </div>
       <div className={styles.cartList_content}>
         <h3>{title}</h3>
@@ -60,6 +64,7 @@ function CartItemList({ cartItems, setCartItems }) {
       <CartItem
         key={id}
         {...{
+          id,
           title,
           price,
           image,
@@ -79,6 +84,7 @@ function CartItemList({ cartItems, setCartItems }) {
 }
 
 CartItem.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,

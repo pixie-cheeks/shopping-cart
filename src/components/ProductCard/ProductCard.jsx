@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { Link } from 'react-router';
 import styles from './product-card.module.css';
 import { getCartItems, setCartItems } from '../cart-storage.js';
 
@@ -29,7 +30,9 @@ function ProductCard({ id, title, price, image, rating }) {
   return (
     <div className={styles.card}>
       <div className={`${styles.card_imgContainer}`}>
-        <img src={image} alt={title} className={`img ${styles.card_img}`} />
+        <Link to={id.toString()}>
+          <img src={image} alt={title} className={`img ${styles.card_img}`} />
+        </Link>
       </div>
       <div>
         <div>{title}</div>

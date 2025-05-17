@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
 
+/**
+ * @returns {{
+ * products: array | undefined,
+ * loading: boolean,
+ * error?: string
+ * }}
+ */
 const useProducts = () => {
   const [products, setProducts] = useState();
   const [loading, setLoading] = useState(true);

@@ -5,6 +5,7 @@ import { userEvent } from '@testing-library/user-event';
 import { ProductCard } from './ProductCard.jsx';
 
 const fakeProduct = {
+  id: 1,
   title: 'Mens Cotton Jacket',
   price: 55.99,
   image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
@@ -14,12 +15,12 @@ const fakeProduct = {
   },
 };
 
-const { title, price, image, rating } = fakeProduct;
+const { id, title, price, image, rating } = fakeProduct;
 const setupRoutes = () => {
   const router = createMemoryRouter([
     {
       path: '/',
-      element: <ProductCard {...{ title, price, image, rating }} />,
+      element: <ProductCard {...{ id, title, price, image, rating }} />,
     },
   ]);
   render(<RouterProvider router={router} />);

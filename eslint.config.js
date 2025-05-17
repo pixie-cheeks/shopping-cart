@@ -28,6 +28,7 @@ export default [
         },
       ],
       'unicorn/prefer-import-meta-properties': 'error',
+      'consistent-return': 'off', // Causes conflict with no-useless-undefined
     },
   },
   {
