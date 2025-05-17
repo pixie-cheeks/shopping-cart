@@ -1,7 +1,61 @@
 .nav {
-  background-color: white;
+  position: relative;
+  background-color: #131921;
+  color: white;
+  font-size: 1.25rem;
 }
 
 .nav_logo {
+  font-size: 2rem;
   font-weight: bold;
+}
+
+.nav_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 0;
+}
+
+.nav_ul {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition:
+    0.3s transform ease-in-out,
+    0.3s visibility ease-in-out;
+  visibility: hidden;
+  z-index: 2;
+  margin: 0;
+  box-shadow: 0 10px 27px rgb(0 0 0 / 30%);
+  background-color: #232f3e;
+  padding: 1em 0;
+  width: 100%;
+}
+
+.nav_ul_visible {
+  transform: scaleY(1);
+  visibility: visible;
+}
+
+.nav_link:hover {
+  color: rgb(206 206 247);
+}
+
+.nav_link:active {
+  color: aliceblue;
+}
+
+.cartLink {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  color: #f08804;
 }
