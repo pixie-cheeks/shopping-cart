@@ -58,4 +58,33 @@
   gap: 0.5em;
   align-items: center;
   color: #f08804;
+  font-weight: bold;
+}
+
+@media screen and (width >= 765px) {
+  .nav_container {
+    align-items: baseline;
+  }
+
+  .nav_ul {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    transform: none;
+    visibility: visible;
+    background-color: inherit;
+    padding: 0;
+  }
+
+  .nav_li:first-child {
+    margin-left: auto;
+  }
+
+  .nav_li:nth-last-child(2) {
+    margin-right: auto;
+  }
+
+  .nav_hamMenu {
+    display: none;
+  }
 }
