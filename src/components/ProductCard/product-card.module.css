@@ -1,4 +1,7 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
   border: 1px solid rgb(0 0 0 / 10%);
   border-radius: 5px;
   box-shadow: 0 0 1px rgb(0 0 0 / 10%);
@@ -17,7 +20,24 @@
 
 .cartControl {
   display: flex;
+  flex-direction: column;
   gap: 0.5em;
+  align-items: start;
+}
+
+.cartControl_top {
+  display: flex;
+  align-items: baseline;
+  border: 2px solid var(--yellow-like-color);
+  border-radius: 20px;
+  font-size: 1.1rem;
+}
+
+.cartControl_button {
+  background-color: inherit;
+  padding: 0.5em;
+  font-size: inherit;
+  font-weight: bold;
 }
 
 .inputNumber {
@@ -34,4 +54,37 @@
   margin: 0;
   text-overflow: ellipsis;
   font-size: 1rem;
+}
+
+.card_price {
+  display: flex;
+  gap: 0.4ch;
+  align-items: center;
+  margin: 0;
+}
+
+.card_priceSymbol {
+  vertical-align: super;
+  font-size: 20px;
+}
+
+.card_priceWhole {
+  font-size: 2rem;
+}
+
+.rating_rate {
+  display: flex;
+  align-items: center;
+}
+
+.rating_icon {
+  color: var(--orange-like-color);
+}
+
+.rating_number {
+  font-size: 1.5rem;
+}
+
+.rating_count {
+  color: rgb(0 0 0 / 50%);
 }

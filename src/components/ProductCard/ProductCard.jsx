@@ -36,15 +36,28 @@ function ProductCard({ id, title, price, image, rating }) {
       </div>
       <div>
         <h2 className={styles.card_title}>{title}</h2>
-        <div>Price: {price}</div>
-        <div>
-          Rate: {rating.rate} Count: {rating.count}
+        <p className={styles.card_price}>
+          <span className={styles.card_priceSymbol}>$</span>
+          <span aria-label="price" className={styles.card_priceWhole}>
+            {price}
+          </span>
+        </p>
+        <div className={styles.rating}>
+          <div className={styles.rating_rate}>
+            <span className={styles.rating_number}>{rating.rate}</span>
+            <span
+              className={`${styles.rating_icon} material-symbols-outlined `}
+            >
+              star
+            </span>
+          </div>
+          <div className={styles.rating_count}>{rating.count} ratings</div>
         </div>
       </div>
       <div className={styles.cartControl}>
         <div className={styles.cartControl_top}>
           <button
-            className={styles.cartControl_reducer}
+            className={`${styles.cartControl_reducer} button ${styles.cartControl_button}`}
             type="button"
             onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
           >
@@ -60,7 +73,7 @@ function ProductCard({ id, title, price, image, rating }) {
             onChange={onInputChange}
           />
           <button
-            className={styles.cartControl_adder}
+            className={`${styles.cartControl_adder} button ${styles.cartControl_button}`}
             type="button"
             onClick={() =>
               setBuyCount((count) => (count < 999 ? count + 1 : 999))
