@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar } from '../Navbar/Navbar.jsx';
-import styles from './shop.module.css';
+import styles from './item.module.css';
 import { useProducts } from '../use-products.js';
 import { getCartItems, setCartItems } from '../cart-storage.js';
 
@@ -30,55 +30,81 @@ function ItemInfo({ id, title, price, image, rating, description }) {
   };
 
   return (
-    <div className={styles.card}>
-      <div className={`${styles.card_imgContainer}`}>
-        <img src={image} alt={title} className={`img ${styles.card_img}`} />
+    <div className={`${styles.item} page__container`}>
+      <div className={`${styles.item_imgContainer}`}>
+        <img src={image} alt={title} className={`img ${styles.item_img}`} />
       </div>
-      <div>
-        <div>{title}</div>
-        <div>Price: {price}</div>
-        <div>
-          Rate: {rating.rate} Count: {rating.count}
+      <div className={styles.item_contentContainer}>
+        <div className={styles.item_infoSection}>
+          <h2 className={styles.card_title}>{title}</h2>
+          <p>{description}</p>
+          <div className={styles.rating}>
+            <div className={styles.rating_rate}>
+              <span
+                aria-label="product rating"
+                className={styles.rating_number}
+              >
+                {rating.rate}
+              </span>
+              <span
+                className={`${styles.rating_icon} material-symbols-outlined `}
+              >
+                star
+              </span>
+            </div>
+            <div aria-label="number of ratings" className={styles.rating_count}>
+              {rating.count} rating{rating.count === 1 ? '' : 's'}
+            </div>
+          </div>
         </div>
-        <div>Description:</div>
-        <div>{description}</div>
-      </div>
-      <div className={styles.cartControl}>
-        <div className={styles.cartControl_top}>
-          <button
-            className={styles.cartControl_reducer}
-            type="button"
-            onClick={() => setBuyCount((count) => (count > 1 ? count - 1 : 1))}
-          >
-            -
-          </button>
-          <input
-            type="number"
-            aria-label="Number of Items"
-            value={buyCount}
-            min="1"
-            max="999"
-            className={`${styles.cartControl_display} ${styles.inputNumber}`}
-            onChange={onInputChange}
-          />
-          <button
-            className={styles.cartControl_adder}
-            type="button"
-            onClick={() =>
-              setBuyCount((count) => (count < 999 ? count + 1 : 999))
-            }
-          >
-            +
-          </button>
-        </div>
-        <div className={styles.cartControl_bottom}>
-          <button
-            type="button"
-            className={styles.cartControl_submit}
-            onClick={onAddToCartClick}
-          >
-            Add to Cart
-          </button>
+
+        <div className={styles.item_purchaseSection}>
+          <p className={styles.card_price}>
+            <span className={styles.card_priceSymbol}>$</span>
+            <span aria-label="price" className={styles.card_priceWhole}>
+              {price}
+            </span>
+          </p>
+          <div className={styles.cartControl}>
+            <div className={styles.cartControl_top}>
+              <button
+                className={`${styles.cartControl_reducer} button ${styles.cartControl_button}`}
+                type="button"
+                onClick={() =>
+                  setBuyCount((count) => (count > 1 ? count - 1 : 1))
+                }
+              >
+                -
+              </button>
+              <input
+                type="number"
+                aria-label="Number of Items"
+                value={buyCount}
+                min="1"
+                max="999"
+                className={`${styles.cartControl_display} ${styles.inputNumber}`}
+                onChange={onInputChange}
+              />
+              <button
+                className={`${styles.cartControl_adder} button ${styles.cartControl_button}`}
+                type="button"
+                onClick={() =>
+                  setBuyCount((count) => (count < 999 ? count + 1 : 999))
+                }
+              >
+                +
+              </button>
+            </div>
+            <div className={styles.cartControl_bottom}>
+              <button
+                type="button"
+                className={styles.cartControl_submit}
+                onClick={onAddToCartClick}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -109,10 +135,14 @@ function Item() {
   };
   return (
     <>
-      <Navbar />
-      {getItemInfo()}
-      {loading && <p>Loading...</p>}
-      {error && <p>There was an error in loading the item.</p>}
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        {getItemInfo()}
+        {loading && <p>Loading...</p>}
+        {error && <p>There was an error in loading the item.</p>}
+      </main>
     </>
   );
 }
