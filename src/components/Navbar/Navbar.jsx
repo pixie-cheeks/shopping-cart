@@ -1,31 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import PropTypes from 'prop-types';
 import styles from './navbar.module.css';
 import { getCartItems, attachSetCartItems } from '../cart-storage.js';
-
-function HamMenuButton({ toggleIsNavVisible }) {
-  const [isActive, setIsActive] = useState(false);
-  const activeClass = isActive ? 'active' : '';
-  const handleClick = () => {
-    setIsActive(!isActive);
-    toggleIsNavVisible();
-  };
-  return (
-    <button
-      type="button"
-      aria-label="Navigation Menu"
-      onClick={handleClick}
-      className={`ham-menu button ${styles.nav_hamMenu} ${activeClass}`}
-    >
-      <span className="ham-menu__span" />
-      <span className="ham-menu__span" />
-      <span className="ham-menu__span" />
-    </button>
-  );
-}
-
-HamMenuButton.propTypes = { toggleIsNavVisible: PropTypes.func.isRequired };
+import { HamMenuButton } from './HamMenuButton.jsx';
 
 const getNumberOfCartItems = () =>
   getCartItems().reduce((total, item) => total + item.quantity, 0);
@@ -74,7 +51,9 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <HamMenuButton {...{ toggleIsNavVisible }} />
+        <HamMenuButton
+          {...{ toggleIsNavVisible, givenClassName: styles.nav_hamMenu }}
+        />
       </div>
     </nav>
   );
