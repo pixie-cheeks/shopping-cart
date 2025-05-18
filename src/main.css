@@ -1,3 +1,10 @@
+:root {
+  --orange-like-color: #f08804;
+  --yellow-like-color: #ffd814;
+  --yellow-like-color-darker: #f0cc17;
+  --yellow-like-color-darkest: #e2c013;
+}
+
 .root__body {
   margin: 0;
 }
@@ -7,6 +14,14 @@
   outline: 1px solid pink;
   width: 90%;
   max-width: 1300px;
+}
+
+.page__h1 {
+  margin: 0;
+}
+
+.page__p {
+  margin: 0;
 }
 
 .img {
