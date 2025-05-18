@@ -11,8 +11,12 @@ import styles from './cart.module.css';
 function PaySection({ totalAmount }) {
   return (
     <div className={styles.paySection}>
-      <p>Total: {totalAmount}</p>
-      <button type="button">Checkout & Pay</button>
+      <p>
+        Total: <span className={styles.paySection_amount}>${totalAmount}</span>
+      </p>
+      <button type="button" className={`button ${styles.paySection_button}`}>
+        Checkout & Pay
+      </button>
     </div>
   );
 }
@@ -39,17 +43,23 @@ function Cart() {
 
   return (
     <>
-      <Navbar />
-      <h1>Your Cart</h1>
-      <main>
-        {cartItems.length > 0 ? (
-          <>
-            <CartItemList {...{ cartItems, setCartItems }} />
-            <PaySection {...{ totalAmount }} />
-          </>
-        ) : (
-          <p>There are no items in the cart.</p>
-        )}
+      <header>
+        <Navbar />
+      </header>
+      <main className={`${styles.cart} main`}>
+        <div className="page__container">
+          <div className={styles.cart_container}>
+            <h1 className={`page__h1 ${styles.cart_heading}`}>Your Cart</h1>
+            {cartItems.length > 0 ? (
+              <>
+                <CartItemList {...{ cartItems, setCartItems }} />
+                <PaySection {...{ totalAmount }} />
+              </>
+            ) : (
+              <p>There are no items in the cart.</p>
+            )}
+          </div>{' '}
+        </div>
       </main>
     </>
   );

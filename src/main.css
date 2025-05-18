@@ -14,9 +14,18 @@
   overflow-y: scroll;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.main {
+  flex: 1;
+}
+
 .page__container {
   margin: 0 auto;
-  outline: 1px solid pink;
   width: 90%;
   max-width: 1400px;
 }

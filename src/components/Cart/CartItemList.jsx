@@ -21,18 +21,37 @@ function CartItem({
       </div>
       <div className={styles.cartList_content}>
         <h3>{title}</h3>
-        <p>Price: {price}</p>
-        <div className={styles.cartList_quantityControl}>
-          <button type="button" onClick={decrementQuantity}>
+        <p className={styles.card_price}>
+          <span className={styles.card_priceSymbol}>$</span>
+          <span aria-label="price" className={styles.card_priceWhole}>
+            {price}
+          </span>
+        </p>
+        <div
+          className={`${styles.cartList_quantityControl} ${styles.quantityControl}`}
+        >
+          <button
+            type="button"
+            onClick={decrementQuantity}
+            className={`${styles.quantityControl_button} button`}
+          >
             -
           </button>
-          <div>{quantity}</div>
-          <button type="button" onClick={incrementQuantity}>
+          <div className={styles.quantityControl_display}>{quantity}</div>
+          <button
+            type="button"
+            onClick={incrementQuantity}
+            className={`${styles.quantityControl_button} button`}
+          >
             +
           </button>
         </div>
       </div>
-      <button type="button" onClick={removeItem}>
+      <button
+        type="button"
+        className={`${styles.cart_removeButton} button`}
+        onClick={removeItem}
+      >
         Remove Item
       </button>
     </div>

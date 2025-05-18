@@ -9,7 +9,7 @@ function Home() {
       <header>
         <Navbar />
       </header>
-      <main>
+      <main className={styles.main}>
         <div className={`page__container ${styles.hero}`}>
           <h1 className={`page__h1 ${styles.hero_heading}`}>Vanity Bazaar</h1>
           <p className={`page__p ${styles.hero_text}`}>

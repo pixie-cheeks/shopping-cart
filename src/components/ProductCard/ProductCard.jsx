@@ -71,6 +71,7 @@ function ProductCard({ id, title, price, image, rating }) {
             type="number"
             aria-label="Number of Items"
             value={buyCount}
+            id={`id-${id}-quantity-input`}
             min="1"
             max="999"
             className={`${styles.cartControl_display} ${styles.inputNumber}`}

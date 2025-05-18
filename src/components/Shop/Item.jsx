@@ -80,6 +80,7 @@ function ItemInfo({ id, title, price, image, rating, description }) {
                 type="number"
                 aria-label="Number of Items"
                 value={buyCount}
+                id={`id-${id}-personal-quantity-input`}
                 min="1"
                 max="999"
                 className={`${styles.cartControl_display} ${styles.inputNumber}`}
@@ -144,7 +145,7 @@ function Item() {
       <header>
         <Navbar />
       </header>
-      <main className="page__container">
+      <main className={`page__container ${styles.main}`}>
         {doesItemNotExist ? (
           <p>No product found with the given ID.</p>
         ) : (

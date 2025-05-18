@@ -1,7 +1,145 @@
+.cart {
+  background-color: #eaeded;
+  padding: 6em 0 2em;
+}
+
+.cart_heading {
+  padding-bottom: 1em;
+}
+
+.cart_container {
+  border-radius: 10px;
+  background-color: white;
+  padding: 1em;
+  min-height: 30dvh;
+}
+
 .cartItemList {
   color: black;
 }
 
+.cartList_item {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  border: solid rgb(0 0 0 / 10%);
+  border-width: 1px 0;
+  padding: 1em 0;
+  text-align: center;
+}
+
 .cartList_imgContainer {
   max-width: 8rem;
+}
+
+.card_price {
+  display: flex;
+  gap: 0.4ch;
+  align-items: center;
+  margin: 0;
+}
+
+.card_priceSymbol {
+  vertical-align: super;
+  font-size: 20px;
+}
+
+.card_priceWhole {
+  font-size: 2rem;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--yellow-like-color-darker);
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 1.1rem;
+}
+
+.quantityControl_button {
+  border: 1px solid rgb(0 0 0 / 6%);
+  background-color: inherit;
+  padding: 0.1em 0.5em;
+  width: 5ch;
+  font-size: inherit;
+  font-weight: bold;
+}
+
+.quantityControl_button:hover {
+  background-color: rgb(0 0 0 / 4%);
+}
+
+.quantityControl_button:active {
+  background-color: rgb(0 0 0 / 8%);
+}
+
+.quantityControl_display {
+  min-width: 5ch;
+  text-align: center;
+}
+
+.cartList_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart_removeButton {
+  border-radius: 30px;
+  background-color: hsl(346deg 89% 42%);
+  padding: 0.5em 1em;
+  color: white;
+  font-weight: bold;
+}
+
+.cart_removeButton:hover {
+  background-color: hsl(346deg 89% 35%);
+}
+
+.cart_removeButton:active {
+  background-color: hsl(346deg 89% 25%);
+}
+
+@media screen and (width >= 765px) {
+  .cartList_item {
+    flex-direction: row;
+    gap: 2em;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .cartList_content {
+    align-items: start;
+  }
+
+  .cart_removeButton {
+    margin-left: auto;
+  }
+}
+
+.paySection {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.paySection_amount {
+  font-weight: bold;
+}
+
+.paySection_button {
+  border-radius: 10px;
+  background-color: hsl(44deg 94% 64%);
+  padding: 1em;
+}
+
+.paySection_button:hover {
+  background-color: hsl(44deg 94% 54%);
+}
+
+.paySection_button:active {
+  background-color: hsl(44deg 94% 44%);
 }

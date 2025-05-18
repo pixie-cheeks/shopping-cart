@@ -1,8 +1,12 @@
+.main {
+  flex: 1;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 1em 0;
+  padding: 4em 0;
   text-align: center;
   font-size: 2rem;
 }
