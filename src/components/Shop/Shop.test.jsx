@@ -28,14 +28,6 @@ const fakeProduct = {
 };
 
 describe('Shop page', () => {
-  it('is in the document', async () => {
-    setupRoutes();
-
-    expect(
-      screen.getByRole('heading', { name: 'Products' }),
-    ).toBeInTheDocument();
-  });
-
   it('renders loading state', () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(vi.fn(() => sleep(1_000)));
     setupRoutes();

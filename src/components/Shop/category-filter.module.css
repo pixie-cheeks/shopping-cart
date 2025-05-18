@@ -1,0 +1,32 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: baseline;
+}
+
+.category_label {
+  display: block;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 10px;
+  padding: 1rem;
+  text-transform: capitalize;
+}
+
+.category_label:hover {
+  outline: 1px solid var(--blue-like-color);
+  background-color: rgb(70 195 253 / 5%);
+  color: rgb(194 126 0);
+}
+
+.category_input {
+  display: none;
+  visibility: hidden;
+}
+
+/* stylelint-disable-next-line selector-max-class, selector-max-combinators */
+.category_input:checked + .category_label {
+  outline: 3px solid var(--blue-like-color);
+  background-color: rgb(70 195 253 / 7%);
+  text-shadow: 0 0 1px;
+}

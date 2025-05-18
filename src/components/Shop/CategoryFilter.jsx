@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './shop.module.css';
+import styles from './category-filter.module.css';
 
 function CategoryFilter({
   selectedCategory,
@@ -8,13 +8,14 @@ function CategoryFilter({
 }) {
   return (
     <div
-      className={styles.categoryFilter}
+      className={styles.categories}
       role="radiogroup"
       aria-label="Category Selection"
     >
       {allCategories.map((categoryName) => (
-        <label htmlFor={categoryName} key={categoryName}>
+        <div key={categoryName} className={styles.category}>
           <input
+            className={styles.category_input}
             id={categoryName}
             type="radio"
             name="category"
@@ -22,8 +23,10 @@ function CategoryFilter({
             checked={categoryName === selectedCategory}
             onChange={() => setSelectedCategory(categoryName)}
           />
-          {categoryName}
-        </label>
+          <label className={styles.category_label} htmlFor={categoryName}>
+            {categoryName}
+          </label>
+        </div>
       ))}
     </div>
   );

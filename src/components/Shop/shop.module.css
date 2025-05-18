@@ -1,3 +1,13 @@
+.shop_container {
+  padding: 1em 0;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 .productList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));

@@ -3,10 +3,15 @@
   --yellow-like-color: #ffd814;
   --yellow-like-color-darker: #f0cc17;
   --yellow-like-color-darkest: #e2c013;
+  --blue-like-color: #0a7cd1;
 }
 
 .root__body {
   margin: 0;
+}
+
+.body {
+  overflow-y: scroll;
 }
 
 .page__container {

@@ -18,7 +18,8 @@ function ProductList({ products }) {
       : products.filter(({ category }) => category === selectedCategory);
 
   return (
-    <>
+    <div className={styles.products}>
+      <h1 className="page__h1">Products</h1>
       <CategoryFilter
         {...{ selectedCategory, setSelectedCategory, allCategories }}
       />
@@ -27,7 +28,7 @@ function ProductList({ products }) {
           <ProductCard {...{ id, title, price, image, rating }} key={id} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
@@ -50,11 +51,16 @@ function Shop() {
 
   return (
     <>
-      <Navbar />
-      <h1>Products</h1>
-      {products && <ProductList products={products} />}
-      {loading && <p>Loading...</p>}
-      {error && <p>There was an error in fetching products.</p>}
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <div className={`page__container ${styles.shop_container}`}>
+          {products && <ProductList products={products} />}
+          {loading && <p>Loading...</p>}
+          {error && <p>There was an error in fetching products.</p>}
+        </div>
+      </main>
     </>
   );
 }
