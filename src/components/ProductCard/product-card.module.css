@@ -1,5 +1,7 @@
 .card {
-  border: 1px solid black;
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 5px;
+  box-shadow: 0 0 1px rgb(0 0 0 / 10%);
   padding: 0.5em;
 }
 
@@ -26,4 +28,10 @@
 .inputNumber::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
+}
+
+.card_title {
+  margin: 0;
+  text-overflow: ellipsis;
+  font-size: 1rem;
 }

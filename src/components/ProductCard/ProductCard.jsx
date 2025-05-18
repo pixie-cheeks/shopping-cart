@@ -35,7 +35,7 @@ function ProductCard({ id, title, price, image, rating }) {
         </Link>
       </div>
       <div>
-        <div>{title}</div>
+        <h2 className={styles.card_title}>{title}</h2>
         <div>Price: {price}</div>
         <div>
           Rate: {rating.rate} Count: {rating.count}
