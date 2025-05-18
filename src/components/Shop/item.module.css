@@ -6,6 +6,16 @@
   padding: 1em 0;
 }
 
+.item_imgContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.item_contentContainer {
+  flex: 1;
+}
+
 .item_infoSection {
   text-align: center;
 }

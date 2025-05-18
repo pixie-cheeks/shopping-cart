@@ -30,7 +30,7 @@ function ItemInfo({ id, title, price, image, rating, description }) {
   };
 
   return (
-    <div className={`${styles.item} page__container`}>
+    <div className={styles.item}>
       <div className={`${styles.item_imgContainer}`}>
         <img src={image} alt={title} className={`img ${styles.item_img}`} />
       </div>
@@ -124,13 +124,19 @@ ItemInfo.propTypes = {
 
 function Item() {
   const { products, loading, error } = useProducts();
+  const [doesItemNotExist, setDoesItemNotExist] = useState(false);
   const { id: paramId } = useParams();
+
   const getItemInfo = () => {
     if (!products) return;
-    const { id, title, price, image, rating, description } = products.find(
+    const foundProduct = products.find(
       (product) => product.id === Number(paramId),
     );
-
+    if (!foundProduct) {
+      setDoesItemNotExist(true);
+      return;
+    }
+    const { id, title, price, image, rating, description } = foundProduct;
     return <ItemInfo {...{ id, title, price, image, rating, description }} />;
   };
   return (
@@ -138,8 +144,12 @@ function Item() {
       <header>
         <Navbar />
       </header>
-      <main>
-        {getItemInfo()}
+      <main className="page__container">
+        {doesItemNotExist ? (
+          <p>No product found with the given ID.</p>
+        ) : (
+          getItemInfo()
+        )}
         {loading && <p>Loading...</p>}
         {error && <p>There was an error in loading the item.</p>}
       </main>
