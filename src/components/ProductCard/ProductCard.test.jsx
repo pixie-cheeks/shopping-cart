@@ -49,10 +49,13 @@ describe('Rendering Tests', () => {
     expect(screen.getByRole('img')).toHaveAttribute('src', image);
   });
 
-  it.todo('renders rating', () => {
+  it('renders rating', () => {
     expect(
-      screen.getByText(`Rate: ${rating.rate} Count: ${rating.count}`),
-    ).toBeInTheDocument();
+      screen.getByRole('generic', { name: 'product rating' }),
+    ).toHaveTextContent(rating.rate);
+    expect(
+      screen.getByRole('generic', { name: 'number of ratings' }),
+    ).toHaveTextContent(`${rating.count} ratings`);
   });
 });
 

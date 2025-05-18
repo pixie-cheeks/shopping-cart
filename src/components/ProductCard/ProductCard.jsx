@@ -44,14 +44,18 @@ function ProductCard({ id, title, price, image, rating }) {
         </p>
         <div className={styles.rating}>
           <div className={styles.rating_rate}>
-            <span className={styles.rating_number}>{rating.rate}</span>
+            <span aria-label="product rating" className={styles.rating_number}>
+              {rating.rate}
+            </span>
             <span
               className={`${styles.rating_icon} material-symbols-outlined `}
             >
               star
             </span>
           </div>
-          <div className={styles.rating_count}>{rating.count} ratings</div>
+          <div aria-label="number of ratings" className={styles.rating_count}>
+            {rating.count} rating{rating.count === 1 ? '' : 's'}
+          </div>
         </div>
       </div>
       <div className={styles.cartControl}>

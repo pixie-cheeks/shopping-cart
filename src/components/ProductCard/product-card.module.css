@@ -27,21 +27,29 @@
 
 .cartControl_top {
   display: flex;
-  align-items: baseline;
-  border: 2px solid var(--yellow-like-color);
+  border: 2px solid var(--yellow-like-color-darker);
   border-radius: 20px;
   font-size: 1.1rem;
 }
 
 .cartControl_button {
   background-color: inherit;
-  padding: 0.5em;
+  padding: 0.1em 0.5em;
+  width: 5ch;
   font-size: inherit;
   font-weight: bold;
 }
 
 .inputNumber {
   appearance: textfield;
+  border-width: 0 1px;
+  border-color: rgb(0 0 0 / 10%);
+  text-align: center;
+}
+
+.inputNumber:focus {
+  outline: none;
+  border-color: rgb(0 0 0 / 40%);
 }
 
 .inputNumber::-webkit-outer-spin-button,
@@ -87,4 +95,16 @@
 
 .rating_count {
   color: rgb(0 0 0 / 50%);
+}
+
+.cartControl_submit {
+  border: none;
+  border-radius: 20px;
+  background-color: var(--yellow-like-color);
+  padding: 0.5em 1em;
+  font-size: 0.8rem;
+}
+
+.cartControl_submit:hover {
+  background-color: var(--yellow-like-color-darker);
 }
