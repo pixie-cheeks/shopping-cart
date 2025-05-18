@@ -1,3 +1,5 @@
-# React + Vite template
+# Shopping Site
 
-Currently quite bloated. Hoping to get it sorted out in the future.
+[Live Link](soontobeadded.com)
+
+A project made with react. Tested with vitest and react's own testing framework.
